@@ -162,7 +162,7 @@ export default function ScrollPlane() {
           <div className="flex w-full flex-col lg:flex-row lg:items-start lg:justify-between">
             {/* Left 40% - Content */}
             <div className="z-20 mb-4 flex w-full flex-col items-start lg:mb-0 lg:w-[45%] xl:w-[40%]">
-              <h2 className="mb-2 text-3xl font-semibold leading-[0.95] tracking-[-0.04em] text-gray-900 sm:text-4xl md:text-5xl lg:mb-4 xl:text-6xl">
+              <h2 className="mb-2 lg:mb-4 max-w-[500px] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-black sm:text-6xl xl:text-7xl">
                 POPULAR CITIES
               </h2>
               <p className="mb-4 max-w-md text-sm font-normal leading-[1.7] tracking-[-0.01em] text-gray-600 sm:text-base lg:mb-8 lg:text-lg">
