@@ -3,13 +3,10 @@
 import React, { useState } from "react";
 import { Pivot as Hamburger } from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 
-const navLinks = [
-  "Home",
-  "Services",
-  "About",
-  "Contact",
-];
+const navLinks = ["Home", "Services", "About", "Contact"];
 
 const menuVariants = {
   hidden: {
@@ -61,14 +58,13 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 lg:px-16 pt-4 sm:pt-6">
-        
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 lg:px-16 pt-3 sm:pt-6">
         <nav
           className="
             rounded-2xl
             px-4
             sm:px-5
-            py-3
+            py-2 sm:py-3
             flex
             items-center
             justify-between
@@ -79,15 +75,20 @@ export default function Header() {
             shadow-[0_8px_32px_rgba(0,0,0,0.08)]
           "
         >
-          
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-2xl font-semibold tracking-tight text-black z-50"
+            className="relative z-50"
           >
-            VEX
+            <Image
+              src={logo}
+              alt="VEX Logo"
+              width={120}
+              height={120}
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain scale-[1.6] sm:scale-[1.8] transform origin-left transition-all duration-300"
+            />
           </motion.div>
 
           {/* Desktop Nav */}
@@ -122,7 +123,6 @@ export default function Header() {
               color="#000000"
             />
           </div>
-
         </nav>
       </header>
 
@@ -144,10 +144,8 @@ export default function Header() {
               backdrop-blur-3xl
             "
           >
-            
             {/* Background Glow */}
             <div className="absolute inset-0">
-              
               <motion.div
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -179,14 +177,11 @@ export default function Header() {
                   blur-3xl
                 "
               />
-
             </div>
 
             {/* Menu Content */}
             <div className="relative flex flex-col items-center justify-center h-full px-6">
-              
               <div className="flex flex-col items-center gap-8">
-                
                 {navLinks.map((link) => (
                   <motion.a
                     key={link}
@@ -237,9 +232,7 @@ export default function Header() {
                 >
                   Start a Chat
                 </motion.button>
-
               </div>
-
             </div>
           </motion.div>
         )}

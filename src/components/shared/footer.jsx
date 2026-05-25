@@ -1,14 +1,11 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
+import { IoLogoLinkedin } from "react-icons/io5";
 
-import {
-  Globe,
-  Mail,
-  Phone,
-  ArrowUpRight,
-  Box,
-} from "lucide-react";
+import { Globe, Mail, Phone } from "lucide-react";
 
 const footerLinks = [
   {
@@ -27,8 +24,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full px-4 sm:px-6 md:px-10 lg:px-16 pb-6 pt-10 bg-transparent">
-      
+    <footer className="w-full px-4 sm:px-6 md:px-10 lg:px-16 pb-6 pt-10 bg-[#f5f5f5]">
       <div
         className="
           relative
@@ -46,32 +42,22 @@ export default function Footer() {
           md:py-12
         "
       >
-        
-        {/* Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-px bg-black/10 blur-sm" />
-
-        {/* Soft Background Glow */}
-        <div className="absolute -top-20 right-0 w-[260px] h-[260px] bg-black/[0.03] rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[220px] h-[220px] bg-black/[0.02] rounded-full blur-[100px]" />
-
         <div className="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-12">
-          
           {/* Left Section */}
           <div className="flex flex-col">
-            
             <div className="flex items-center gap-3">
-              
-              <div className="w-11 h-11 rounded-xl bg-black text-white flex items-center justify-center">
-                <Box className="w-5 h-5" />
-              </div>
-
-              <h2 className="text-2xl font-semibold tracking-tight text-black">
-                VEX
-              </h2>
+              <Image
+                src={logo}
+                alt="VEX Logo"
+                width={280}
+                height={80}
+                className="h-10 w-auto object-contain transform scale-[2] origin-left"
+              />
             </div>
 
             <p className="text-sm text-gray-600 mt-6 leading-relaxed max-w-sm">
-              We back visionaries and craft ventures that define what comes next.
+              We back visionaries and craft ventures that define what comes
+              next.
             </p>
 
             <p className="text-sm text-gray-500 mt-8">
@@ -79,16 +65,13 @@ export default function Footer() {
               <br />
               All rights reserved.
             </p>
-
           </div>
 
           {/* Right Section */}
           <div className="xl:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-10">
-            
             {/* Footer Links */}
             {footerLinks.map((section) => (
               <div key={section.label}>
-                
                 <h3 className="text-black text-sm font-semibold tracking-wide mb-5">
                   {section.label}
                 </h3>
@@ -111,19 +94,16 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-
               </div>
             ))}
 
             {/* Social / Contact */}
             <div>
-              
               <h3 className="text-black text-sm font-semibold tracking-wide mb-5">
                 Connect
               </h3>
 
               <ul className="space-y-3">
-                
                 <li>
                   <a
                     href="#"
@@ -159,17 +139,13 @@ export default function Footer() {
                     href="#"
                     className="flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-all duration-300"
                   >
-                    <ArrowUpRight className="w-4 h-4" />
+                    <IoLogoLinkedin className="w-4 h-4" />
                     LinkedIn
                   </a>
                 </li>
-
               </ul>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </footer>

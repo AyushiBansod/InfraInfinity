@@ -40,9 +40,7 @@ export default function ExpertGuide() {
   return (
     <section className="relative w-full overflow-hidden bg-[#f5f5f5] py-24 sm:py-28 lg:py-32 px-4 sm:px-6 md:px-10 lg:px-16">
       
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-[280px] h-[280px] bg-black/[0.03] rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-[320px] h-[320px] bg-neutral-200/40 rounded-full blur-[120px]" />
+      
 
       <div className="relative z-10 max-w-[1450px] mx-auto flex flex-col items-center">
 

@@ -32,135 +32,131 @@ export default function ScrollPlane() {
   useEffect(() => {
     if (!isReady) return;
 
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    const ctx = gsap.context(() => {
+      const plane = planeRef.current;
+      const corePath = pathCoreRef.current;
+      const topPath = pathTopRef.current;
+      const bottomPath = pathBottomRef.current;
 
-    const plane = planeRef.current;
-    const corePath = pathCoreRef.current;
-    const topPath = pathTopRef.current;
-    const bottomPath = pathBottomRef.current;
+      if (!plane || !corePath) return;
 
-    if (!plane || !corePath) return;
+      // Setup draw animation for all three paths
+      const setupDraw = (path, dashLengthMultiplier = 1) => {
+        if (!path) return;
+        const length = path.getTotalLength();
+        const dashLength = length * 0.15 * dashLengthMultiplier;
+        const gapLength = length * 2;
+        gsap.set(path, {
+          strokeDasharray: `${dashLength} ${gapLength}`,
+          strokeDashoffset: dashLength,
+        });
+        return { length, dashLength };
+      };
 
-    // Setup draw animation for all three paths
-    const setupDraw = (path, dashLengthMultiplier = 1) => {
-      if (!path) return;
-      const length = path.getTotalLength();
-      const dashLength = length * 0.15 * dashLengthMultiplier;
-      const gapLength = length * 2;
-      gsap.set(path, {
-        strokeDasharray: `${dashLength} ${gapLength}`,
-        strokeDashoffset: dashLength,
-      });
-      return { length, dashLength };
-    };
+      const coreConfig = setupDraw(corePath, 1);
+      const topConfig = setupDraw(topPath, 0.7);
+      const bottomConfig = setupDraw(bottomPath, 0.5);
 
-    const coreConfig = setupDraw(corePath, 1);
-    const topConfig = setupDraw(topPath, 0.7);
-    const bottomConfig = setupDraw(bottomPath, 0.5);
-
-    // Initial plane and paths state: hidden until scroll starts
-    gsap.set([plane, corePath, topPath, bottomPath], {
-      opacity: 0,
-    });
-    gsap.set(plane, {
-      scale: 0.4,
-      transformOrigin: "50% 50%",
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top center",
-        end: "bottom center",
-        scrub: 1.2,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // Fade in animated elements quickly at the start of scroll
-    tl.to(
-      [plane, corePath, topPath, bottomPath],
-      { opacity: 1, duration: 0.2 },
-      0,
-    );
-
-    // Draw paths sequentially
-    tl.to(
-      corePath,
-      {
-        strokeDashoffset: coreConfig.dashLength - coreConfig.length,
-        duration: 4,
-        ease: "power2.inOut",
-      },
-      0,
-    );
-    tl.to(
-      topPath,
-      {
-        strokeDashoffset: topConfig.dashLength - topConfig.length,
-        duration: 4,
-        ease: "power2.inOut",
-      },
-      0.1,
-    );
-    tl.to(
-      bottomPath,
-      {
-        strokeDashoffset: bottomConfig.dashLength - bottomConfig.length,
-        duration: 4,
-        ease: "power2.inOut",
-      },
-      0.2,
-    );
-
-    // Animate plane along the core path
-    tl.to(
-      plane,
-      {
-        scale: 0.7,
-        duration: 4,
-        motionPath: {
-          path: corePath,
-          align: corePath,
-          alignOrigin: [0.5, 0.5],
-          autoRotate: true,
-          autoRotateDelay: 0.5,
-        },
-        ease: "power2.inOut",
-      },
-      0,
-    );
-
-    // Fade out paths
-    tl.to(
-      [corePath, topPath, bottomPath],
-      {
+      // Initial plane and paths state: hidden until scroll starts
+      gsap.set([plane, corePath, topPath, bottomPath], {
         opacity: 0,
-        duration: 1.2,
-        ease: "power2.out",
-      },
-      "-=1.2",
-    );
+      });
+      gsap.set(plane, {
+        scale: 0.4,
+        transformOrigin: "50% 50%",
+      });
 
-    // Fade out container
-    tl.to(svgContainerRef.current, { opacity: 0, duration: 0.8 }, "-=0.8");
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1.2,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // Fade in animated elements quickly at the start of scroll
+      tl.to(
+        [plane, corePath, topPath, bottomPath],
+        { opacity: 1, duration: 0.2 },
+        0,
+      );
+
+      // Draw paths sequentially
+      tl.to(
+        corePath,
+        {
+          strokeDashoffset: coreConfig.dashLength - coreConfig.length,
+          duration: 4,
+          ease: "power2.inOut",
+        },
+        0,
+      );
+      tl.to(
+        topPath,
+        {
+          strokeDashoffset: topConfig.dashLength - topConfig.length,
+          duration: 4,
+          ease: "power2.inOut",
+        },
+        0.1,
+      );
+      tl.to(
+        bottomPath,
+        {
+          strokeDashoffset: bottomConfig.dashLength - bottomConfig.length,
+          duration: 4,
+          ease: "power2.inOut",
+        },
+        0.2,
+      );
+
+      // Animate plane along the core path
+      tl.to(
+        plane,
+        {
+          scale: 0.7,
+          duration: 4,
+          motionPath: {
+            path: corePath,
+            align: corePath,
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            autoRotateDelay: 0.5,
+          },
+          ease: "power2.inOut",
+        },
+        0,
+      );
+
+      // Fade out paths
+      tl.to(
+        [corePath, topPath, bottomPath],
+        {
+          opacity: 0,
+          duration: 1.2,
+          ease: "power2.out",
+        },
+        "-=1.2",
+      );
+
+      // Fade out container
+      tl.to(svgContainerRef.current, { opacity: 0, duration: 0.8 }, "-=0.8");
+    }, sectionRef);
 
     const handleResize = () => ScrollTrigger.refresh();
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      tl.scrollTrigger?.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ctx.revert();
     };
   }, [isReady]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-[#f5f5f5]"
-    >
-      <div className="flex w-full flex-col items-center justify-start overflow-hidden px-4 py-2 sm:py-6 lg:py-8 sm:px-8 md:px-12 lg:px-12 xl:px-32">
+    <section ref={sectionRef} className="relative w-full bg-[#f5f5f5]">
+      <div className="flex w-full flex-col items-center justify-start overflow-hidden px-4 py-2 sm:py-6 lg:py-8 sm:px-8 lg:px-12 xl:px-24">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col">
           {/* Top Split Section */}
           <div className="flex w-full flex-col lg:flex-row lg:items-start lg:justify-between">

@@ -20,13 +20,23 @@ export default function Trusted() {
     const ctx = gsap.context(() => {
       // ROTATION
       gsap.to(svgRef.current, {
-        rotate: 1080,
+        rotation: 1080,
+        transformOrigin: "center center",
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
-          end: "bottom top",
+          end: () => {
+            if (window.innerWidth < 1024 && sectionRef.current && imageRef.current) {
+              const sectionRect = sectionRef.current.getBoundingClientRect();
+              const imageRect = imageRef.current.getBoundingClientRect();
+              const diff = imageRect.top - sectionRect.top;
+              return `top+${diff} 40%`;
+            }
+            return "bottom top";
+          },
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       });
 
@@ -37,13 +47,49 @@ export default function Trusted() {
           y: 0,
         },
         {
-          y: 260,
+          y: () => {
+            if (
+              !sectionRef.current ||
+              !windmillWrapperRef.current ||
+              !headingRef.current ||
+              !imageRef.current
+            )
+              return 0;
+            const sectionRect = sectionRef.current.getBoundingClientRect();
+            const headingRect = headingRef.current.getBoundingClientRect();
+            const imageRect = imageRef.current.getBoundingClientRect();
+            const windmillHeight = windmillWrapperRef.current.offsetHeight;
+
+            // Calculate starting and ending offsets relative to the section's top
+            const headingTop = headingRect.top - sectionRect.top;
+            const imageBottom = imageRect.bottom - sectionRect.top;
+            const imageTop = imageRect.top - sectionRect.top;
+
+            const isMobile = window.innerWidth < 1024;
+
+            if (isMobile) {
+              return imageTop - windmillHeight - headingTop - 24;
+            }
+
+            // The windmill starts at the top of the heading (headingTop).
+            // It should end with its bottom edge aligned with the bottom of the image (imageBottom).
+            return imageBottom - windmillHeight - headingTop;
+          },
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top center",
-            end: "bottom center",
+            start: "top bottom",
+            end: () => {
+              if (window.innerWidth < 1024 && sectionRef.current && imageRef.current) {
+                const sectionRect = sectionRef.current.getBoundingClientRect();
+                const imageRect = imageRef.current.getBoundingClientRect();
+                const diff = imageRect.top - sectionRect.top;
+                return `top+${diff} 40%`;
+              }
+              return "bottom top";
+            },
             scrub: 1,
+            invalidateOnRefresh: true,
           },
         },
       );
@@ -54,17 +100,7 @@ export default function Trusted() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <section
@@ -77,12 +113,12 @@ export default function Trusted() {
           <div className="relative flex w-full justify-between">
             {/* Heading */}
             <div ref={headingRef} id="trusted-heading">
-              <h2 className="max-w-[760px] text-[3rem] font-semibold leading-[0.92] tracking-[-0.05em] text-black sm:text-[4rem] lg:text-[5.2rem]">
+              <h2 className="max-w-[760px] text-[3rem] font-semibold leading-[0.92] tracking-[-0.05em] text-black sm:text-[4rem] lg:text-[5.2rem] pr-24 sm:pr-32 lg:pr-0">
                 Your Trusted Real
               </h2>
 
               <h2
-                className="mt-1 text-[3rem] leading-[0.92] tracking-[-0.05em] text-black sm:text-[4rem] lg:text-[5.2rem]"
+                className="mt-1 text-[3rem] leading-[0.92] tracking-[-0.05em] text-black sm:text-[4rem] lg:text-[5.2rem] pr-24 sm:pr-32 lg:pr-0"
                 style={{ fontFamily: "serif" }}
               >
                 Estate Advisors
@@ -92,16 +128,15 @@ export default function Trusted() {
             {/* WINDMILL */}
             <div
               ref={windmillWrapperRef}
-              className="absolute right-0 top-0 z-20 hidden lg:block"
+              className="absolute right-4 sm:right-8 lg:right-28 top-0 z-20 block"
             >
               <div className="flex flex-col items-center">
                 <svg
                   ref={svgRef}
-                  width="140"
-                  height="140"
                   viewBox="0 0 248 248"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="h-20 w-20 sm:h-24 sm:w-24 lg:h-[140px] lg:w-[140px]"
                 >
                   <path
                     fill="url(#paint0_linear)"
@@ -139,14 +174,12 @@ export default function Trusted() {
                     </linearGradient>
                   </defs>
                 </svg>
-
-                <p className="mt-3 text-sm text-gray-500">Scroll to rotate</p>
               </div>
             </div>
           </div>
 
           {/* Description */}
-          <div className="mt-6 w-full max-w-[600px]">
+          <div className="mt-6 w-full max-w-[600px] pr-24 sm:pr-32 lg:pr-0">
             <p className="text-lg leading-[1.7] text-[#4b4b4b] sm:text-xl">
               Discover the epitome of luxury living in this offering sweeping
               panoramic ocean views from every room.
