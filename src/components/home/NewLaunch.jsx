@@ -82,7 +82,7 @@ const NewLaunch = () => {
   return (
     <div
       ref={sectionRef}
-      className="bg-[#F5F5F5] w-full py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="bg-[#F5F5F5] w-full pt-16 pb-8 sm:pt-20 sm:pb-20 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* HEADER */}
