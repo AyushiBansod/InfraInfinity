@@ -5,7 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import heroImage from "@/assets/pic1.jpg";
+import heroImage from "@/assets/trusted.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,7 +114,7 @@ export default function Trusted() {
             {/* Heading */}
             <div ref={headingRef} id="trusted-heading">
               <h2 className="max-w-[760px] text-[3rem] font-semibold leading-[0.92] tracking-[-0.05em] text-black sm:text-[4rem] lg:text-[5.2rem] pr-24 sm:pr-32 lg:pr-0">
-                Your Trusted Real
+                YOUR TRUSTED REAL
               </h2>
 
               <h2
@@ -205,64 +205,52 @@ export default function Trusted() {
             </div>
 
             {/* Cards */}
-            <div className="w-full lg:w-[30%]">
-              <div className="grid h-[400px] grid-cols-2">
+            <div className="w-full lg:w-[35%] xl:w-[32%]">
+              <div className="grid h-full min-h-[320px] grid-cols-2 gap-3 sm:gap-4">
                 {/* Card 1 */}
-                <div className="rounded-tl-[24px] rounded-bl-[24px] bg-white p-4 shadow-sm">
-                  <div className="flex h-full flex-col items-center justify-center text-center">
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-black sm:text-3xl">
-                      18k+
-                    </h3>
-
-                    <p className="mt-3 text-xs text-gray-500 sm:text-sm">
-                      Satisfied Customers
-                    </p>
-                  </div>
+                <div className="group flex flex-col items-center justify-center text-center rounded-[24px] bg-white p-4 sm:p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer">
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl group-hover:scale-105 transition-transform duration-500">
+                    10k+
+                  </h3>
+                  <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-widest leading-relaxed">
+                    Satisfied<br />Customers
+                  </p>
                 </div>
 
                 {/* Card 2 */}
-                <div className="mb-4 ml-4 rounded-[24px] bg-white p-4 shadow-sm">
-                  <div className="flex h-full flex-col items-center justify-center text-center">
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-black sm:text-3xl">
-                      17k+
-                    </h3>
-
-                    <p className="mt-3 text-xs text-gray-500 sm:text-sm">
-                      Total Partner
-                    </p>
-                  </div>
+                <div className="group flex flex-col items-center justify-center text-center rounded-[24px] bg-white p-4 sm:p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer mt-0 lg:mt-6">
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl group-hover:scale-105 transition-transform duration-500">
+                    17k+
+                  </h3>
+                  <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-widest leading-relaxed">
+                    Total<br />Partner
+                  </p>
                 </div>
 
                 {/* Card 3 */}
-                <div className="mr-4 mt-4 rounded-[24px] bg-white p-4 shadow-sm">
-                  <div className="flex h-full flex-col items-center justify-center text-center">
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-black sm:text-3xl">
-                      13+
-                    </h3>
-
-                    <p className="mt-3 text-xs text-gray-500 sm:text-sm">
-                      Years of Experience
-                    </p>
-                  </div>
+                <div className="group flex flex-col items-center justify-center text-center rounded-[24px] bg-white p-4 sm:p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer mb-0 lg:mb-6">
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl group-hover:scale-105 transition-transform duration-500">
+                    15+
+                  </h3>
+                  <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-widest leading-relaxed">
+                    Years of<br />Experience
+                  </p>
                 </div>
 
                 {/* Card 4 */}
-                <div className="rounded-tr-[24px] rounded-br-[24px] bg-white p-4 shadow-sm">
-                  <div className="flex h-full flex-col items-center justify-center text-center">
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-black sm:text-3xl">
-                      14k+
-                    </h3>
-
-                    <p className="mt-3 text-xs text-gray-500 sm:text-sm">
-                      Property Available
-                    </p>
-                  </div>
+                <div className="group flex flex-col items-center justify-center text-center rounded-[24px] bg-white p-4 sm:p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer">
+                  <h3 className="text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl group-hover:scale-105 transition-transform duration-500">
+                    10k+
+                  </h3>
+                  <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-widest leading-relaxed">
+                    Property<br />Available
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Empty Space */}
-            <div className="hidden lg:block lg:w-[30%]" />
+            <div className="hidden lg:block flex-1" />
           </div>
         </div>
       </div>

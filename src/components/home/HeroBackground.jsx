@@ -168,68 +168,7 @@ export default function HeroBackground() {
               </p>
             </FadeIn>
 
-            <FadeIn
-              delay={1000}
-              duration={1000}
-              className="
-                flex
-                flex-col
-                sm:flex-row
-                gap-3
-                sm:gap-4
-                w-full
-                sm:w-auto
-              "
-            >
-              <button
-                className="
-                  w-full
-                  sm:w-auto
-                  bg-white
-                  text-black
-                  px-6
-                  sm:px-8
-                  py-3
-                  rounded-lg
-                  font-medium
-                  text-sm
-                  sm:text-base
-                  hover:bg-gray-100
-                  transition-colors
-                "
-              >
-                Start a Chat
-              </button>
-
-              <button
-                className="
-                  w-full
-                  sm:w-auto
-                  liquid-glass
-                  border
-                  border-white/20
-                  text-white
-                  px-6
-                  sm:px-8
-                  py-3
-                  rounded-lg
-                  font-medium
-                  text-sm
-                  sm:text-base
-                  hover:bg-white
-                  hover:text-black
-                  transition-colors
-                "
-              >
-                Explore Now
-              </button>
-            </FadeIn>
-          </div>
-
-          {/* Right Side */}
-          <div className="w-full flex justify-start lg:justify-end">
-            <FadeIn delay={1400} duration={1000}>
-              
+            <FadeIn delay={1000} duration={1000}>
               <div
                 className="
                   liquid-glass
@@ -259,7 +198,6 @@ export default function HeroBackground() {
                   Investing. Building. Advisory.
                 </span>
               </div>
-
             </FadeIn>
           </div>
 

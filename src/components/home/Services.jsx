@@ -46,7 +46,7 @@ export default function Services() {
           {/* Left Content */}
           <div className="flex flex-col">
             <h2 className="max-w-[500px] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-black sm:text-6xl xl:text-7xl">
-              Our Services
+              OUR SERVICES
             </h2>
 
             <p className="mt-8 max-w-[520px] text-base font-normal leading-[1.8] tracking-[-0.02em] text-[#444] sm:text-lg">
@@ -60,8 +60,9 @@ export default function Services() {
               and transparent experience at every step.
             </p>
 
-            <button className="mt-10 flex w-fit items-center gap-2 rounded-full border border-gray-900 px-5 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white lg:px-6 lg:py-2.5">
-              View all <ArrowUpRight className="h-4 w-4" />
+            <button className="mt-10 flex w-fit items-center gap-2 text-xs md:text-sm font-medium tracking-widest uppercase border border-gray-400 rounded-full px-8 py-3 text-gray-700 hover:bg-gray-200 transition duration-300 cursor-pointer">
+              VIEW ALL
+              <ArrowUpRight className="h-4 w-4" />
             </button>
           </div>
 

@@ -163,7 +163,7 @@ export default function ScrollPlane() {
             {/* Left 40% - Content */}
             <div className="z-20 mb-4 flex w-full flex-col items-start lg:mb-0 lg:w-[45%] xl:w-[40%]">
               <h2 className="mb-2 text-3xl font-semibold leading-[0.95] tracking-[-0.04em] text-gray-900 sm:text-4xl md:text-5xl lg:mb-4 xl:text-6xl">
-                Popular Cities
+                POPULAR CITIES
               </h2>
               <p className="mb-4 max-w-md text-sm font-normal leading-[1.7] tracking-[-0.01em] text-gray-600 sm:text-base lg:mb-8 lg:text-lg">
                 Discover the most sought-after real estate markets around the
@@ -175,8 +175,9 @@ export default function ScrollPlane() {
                 yield investment, these locations open doors to global
                 opportunities and premium living.
               </p>
-              <button className="flex items-center gap-2 rounded-full border border-gray-900 px-5 py-2 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white lg:mb-10 lg:px-6 lg:py-2.5">
-                Explore All <ArrowUpRight className="h-4 w-4" />
+              <button className="flex items-center gap-2 text-xs md:text-sm font-medium tracking-widest uppercase border border-gray-400 rounded-full px-8 py-3 text-gray-700 hover:bg-gray-200 transition duration-300 cursor-pointer lg:mb-10">
+                EXPLORE ALL
+                <ArrowUpRight className="h-4 w-4" />
               </button>
             </div>
 

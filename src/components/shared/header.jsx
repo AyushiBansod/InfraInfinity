@@ -107,7 +107,7 @@ export default function Header() {
           {/* Desktop Button */}
           <div className="hidden md:block">
             <button className="bg-black text-white px-6 py-2 rounded-xl text-sm font-medium hover:bg-neutral-800 hover:scale-[1.03] transition-all duration-300">
-              Start a Chat
+              Explore Now
             </button>
           </div>
 
@@ -140,7 +140,7 @@ export default function Header() {
               z-40
               md:hidden
               overflow-hidden
-              bg-black/90
+              bg-white/95
               backdrop-blur-3xl
             "
           >
@@ -156,7 +156,7 @@ export default function Header() {
                   right-[-10%]
                   w-[400px]
                   h-[400px]
-                  bg-white/10
+                  bg-black/5
                   rounded-full
                   blur-3xl
                 "
@@ -172,7 +172,7 @@ export default function Header() {
                   left-[-10%]
                   w-[300px]
                   h-[300px]
-                  bg-white/5
+                  bg-black/5
                   rounded-full
                   blur-3xl
                 "
@@ -192,9 +192,9 @@ export default function Header() {
                       letterSpacing: "0.02em",
                     }}
                     className="
-                      text-white
-                      text-[42px]
-                      sm:text-6xl
+                      text-black
+                      text-3xl
+                      sm:text-4xl
                       font-semibold
                       tracking-[-0.04em]
                       leading-none
@@ -218,19 +218,19 @@ export default function Header() {
                   }}
                   className="
                     mt-8
-                    bg-white
-                    text-black
+                    bg-black
+                    text-white
                     px-10
                     py-4
                     rounded-2xl
                     text-lg
                     font-medium
                     shadow-2xl
-                    hover:bg-gray-100
+                    hover:bg-gray-800
                     transition-all
                   "
                 >
-                  Start a Chat
+                  Explore Now
                 </motion.button>
               </div>
             </div>

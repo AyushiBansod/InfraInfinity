@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 
 import n1 from "@/assets/n1.jpg";
 import n2 from "@/assets/n2.jpg";
@@ -81,7 +82,7 @@ const NewLaunch = () => {
   return (
     <div
       ref={sectionRef}
-      className="bg-[#FAF3EB] w-full py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="bg-[#F5F5F5] w-full py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto">
         {/* HEADER */}
@@ -105,8 +106,9 @@ const NewLaunch = () => {
 
           {/* RIGHT BUTTON */}
           <div className="lg:col-span-4 flex lg:justify-end lg:items-center pr-2 xl:pr-6">
-            <button className="text-xs md:text-sm font-medium tracking-widest uppercase border border-gray-400 rounded-full px-8 py-3 text-gray-700 hover:bg-gray-200 transition duration-300 cursor-pointer">
-              EXPLORE MORE
+            <button className="flex items-center gap-2 text-xs md:text-sm font-medium tracking-widest  border border-gray-400 rounded-full px-8 py-3 text-gray-700 hover:bg-gray-200 transition duration-300 cursor-pointer">
+              Explore More
+              <ArrowUpRight className="h-4 w-4" />
             </button>
           </div>
         </div>

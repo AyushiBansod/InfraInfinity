@@ -6,6 +6,8 @@ import ExpertGuide from "@/components/home/ExpertGuide";
 import Services from "@/components/home/Services";
 import YourTrust from "@/components/home/YourTrust";
 import NewLaunch from "@/components/home/NewLaunch";
+import GetinTouch from "@/components/home/GetinTouch";
+
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -17,7 +19,9 @@ export default function Home() {
         <ScrollPlane />
         <Services />
         < YourTrust />
+
         <NewLaunch />
+        <GetinTouch />
       </main>
 
       <Footer />
