@@ -81,6 +81,7 @@ const NewLaunch = () => {
 
   return (
     <div
+      id="newlaunch"
       ref={sectionRef}
       className="bg-[#F5F5F5] w-full pt-16 pb-8 sm:pt-20 sm:pb-20 px-6 md:px-12 lg:px-20 overflow-hidden"
     >
@@ -92,7 +93,7 @@ const NewLaunch = () => {
             <div className="flex items-center gap-4 mb-4">
               
 
-              <h2 className="text-5xl sm:text-6xl xl:text-7xl font-semibold leading-[0.95] tracking-[-0.05em] text-black uppercase">
+              <h2 className="text-3xl md:text-5xl sm:text-6xl xl:text-7xl font-semibold leading-[0.95] tracking-[-0.05em] text-black uppercase">
                 NEW LISTINGS
               </h2>
             </div>

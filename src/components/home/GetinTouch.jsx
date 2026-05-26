@@ -72,7 +72,7 @@ export default function GetinTouch() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen pt-8 pb-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 flex items-center justify-center overflow-hidden bg-[#f5f5f5]">
+    <section id="contact" ref={sectionRef} className="relative w-full min-h-screen pt-16 pb-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-16 flex items-center justify-center overflow-hidden bg-[#f5f5f5]">
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto">

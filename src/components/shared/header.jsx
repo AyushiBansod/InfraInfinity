@@ -55,6 +55,19 @@ const linkVariants = {
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
 
+  const handleNavClick = (e, targetName) => {
+    e.preventDefault();
+    if (targetName === "Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(targetName.toLowerCase());
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+    setOpen(false);
+  };
+
   return (
     <>
       {/* Header */}
@@ -96,7 +109,8 @@ export default function Header() {
             {navLinks.map((link) => (
               <a
                 key={link}
-                href="#"
+                href={`#${link.toLowerCase()}`}
+                onClick={(e) => handleNavClick(e, link)}
                 className="hover:text-gray-600 transition-all duration-300"
               >
                 {link}
@@ -106,7 +120,10 @@ export default function Header() {
 
           {/* Desktop Button */}
           <div className="hidden md:block">
-            <button className="bg-black text-white px-6 py-2 rounded-xl text-sm font-medium hover:bg-neutral-800 hover:scale-[1.03] transition-all duration-300">
+            <button 
+              onClick={(e) => handleNavClick(e, "NewLaunch")}
+              className="bg-black text-white px-6 py-2 rounded-xl text-sm font-medium hover:bg-neutral-800 hover:scale-[1.03] transition-all duration-300"
+            >
               Explore Now
             </button>
           </div>
@@ -185,7 +202,7 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <motion.a
                     key={link}
-                    href="#"
+                    href={`#${link.toLowerCase()}`}
                     variants={linkVariants}
                     whileHover={{
                       scale: 1.03,
@@ -201,7 +218,7 @@ export default function Header() {
                       transition-all
                       duration-300
                     "
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleNavClick(e, link)}
                   >
                     {link}
                   </motion.a>
@@ -216,6 +233,7 @@ export default function Header() {
                   whileTap={{
                     scale: 0.96,
                   }}
+                  onClick={(e) => handleNavClick(e, "NewLaunch")}
                   className="
                     mt-8
                     bg-black

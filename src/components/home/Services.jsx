@@ -39,13 +39,13 @@ export default function Services() {
   const [activeCard, setActiveCard] = useState(1);
 
   return (
-    <section className="w-full bg-[#f5f5f5] px-4 py-16 sm:px-8 lg:px-12 xl:px-24">
+    <section id="services" className="w-full bg-[#f5f5f5] px-4 py-16 sm:px-8 lg:px-12 xl:px-24">
       <div className="mx-auto max-w-[1400px]">
         {/* Top Section */}
         <div className="mb-14 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left Content */}
           <div className="flex flex-col">
-            <h2 className="max-w-[500px] text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-black sm:text-6xl xl:text-7xl">
+            <h2 className="max-w-[500px] text-3xl md:text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-black sm:text-6xl xl:text-7xl">
               OUR SERVICES
             </h2>
 

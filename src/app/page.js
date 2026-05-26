@@ -6,7 +6,10 @@ import ExpertGuide from "@/components/home/ExpertGuide";
 import Services from "@/components/home/Services";
 import YourTrust from "@/components/home/YourTrust";
 import NewLaunch from "@/components/home/NewLaunch";
+import WhatWeDo from "@/components/home/WhatWeDo";
 import GetinTouch from "@/components/home/GetinTouch";
+import AboutUs from "@/components/home/AboutUs";
+import Roadmap from "@/components/home/RoadMap";
 
 export default function Home() {
   return (
@@ -18,9 +21,12 @@ export default function Home() {
         < ExpertGuide />
         <ScrollPlane />
         <Services />
+        <NewLaunch />
         < YourTrust />
 
-        <NewLaunch />
+        <WhatWeDo />
+        <AboutUs />
+        <Roadmap />
         <GetinTouch />
       </main>
 
