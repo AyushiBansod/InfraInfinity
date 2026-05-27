@@ -2,12 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const FadeIn = ({
-  children,
-  delay = 0,
-  duration = 1000,
-  className = "",
-}) => {
+const FadeIn = ({ children, delay = 0, duration = 1000, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -62,12 +57,15 @@ const AnimatedHeading = ({
             {words.map((word, wordIndex) => {
               const wordChars = word.split("");
               const wordSpan = (
-                <span key={wordIndex} className="inline-block whitespace-nowrap">
+                <span
+                  key={wordIndex}
+                  className="inline-block whitespace-nowrap"
+                >
                   {wordChars.map((char) => {
                     const delay =
                       lineIndex * line.length * charDelay +
                       currentLineCharIndex * charDelay;
-                    
+
                     currentLineCharIndex++;
 
                     return (
@@ -112,25 +110,21 @@ const AnimatedHeading = ({
 export default function HeroBackground() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-end">
-      
       {/* Video Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4"
         autoPlay
         loop
         muted
         playsInline
-      />
-
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
       {/* Content */}
       <div className="relative z-10 w-full px-4 sm:px-6 md:px-10 lg:px-16 pb-8 sm:pb-10 md:pb-14 lg:pb-16 pt-32 sm:pt-36">
-        
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
-          
           {/* Left Side */}
           <div className="w-full">
-            
             <AnimatedHeading
               text={"Shaping tomorrow\nwith vision and action."}
               className="
@@ -163,8 +157,8 @@ export default function HeroBackground() {
                   mb-6
                 "
               >
-                We back visionaries and craft ventures that define
-                what comes next.
+                We back visionaries and craft ventures that define what comes
+                next.
               </p>
             </FadeIn>
 
@@ -200,7 +194,6 @@ export default function HeroBackground() {
               </div>
             </FadeIn>
           </div>
-
         </div>
       </div>
     </section>

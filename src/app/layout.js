@@ -1,8 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "New App",
-  description: "Recreated hero section",
+  title: "InfraInfinity",
+  description: "Premium properties and smart real estate solutions.",
+  icons: {
+    icon: "/title.png",
+  },
 };
 
 export default function RootLayout({ children }) {
