@@ -125,7 +125,7 @@ export default function GetinTouch() {
           </div>
 
           {/* Right Side: Form Section (50%) */}
-          <div ref={formRef} className="w-full lg:w-1/2 mt-10 lg:mt-0">
+          <div ref={formRef} className="w-full lg:w-1/2 mt-10 lg:mt-25">
             <div className="p-6 sm:p-10 rounded-[32px] bg-white border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
               <h3 className="text-3xl sm:text-4xl font-semibold text-black mb-3">
                 Get in Touch
